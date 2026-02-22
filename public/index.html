@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Live Transcription</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎙️ Gemini Live Transcription</h1>
+            <p class="subtitle">Real-time speech-to-text with AI responses</p>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Disconnected</span>
+            </div>
+            <div class="model-selector">
+                <label for="modelSelect">Model:</label>
+                <select id="modelSelect">
+                    <option value="gemini-2.0-flash-live-001">Gemini 2.0 Flash Live</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Transcription Display -->
+            <section class="transcription-section">
+                <div class="section-header">
+                    <h2>📝 Transcription</h2>
+                    <div class="transcription-controls">
+                        <button id="clearBtn" class="btn btn-secondary btn-small" title="Clear transcription">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </div>
+                <div class="transcription-container" id="transcriptionContainer">
+                    <div class="placeholder" id="placeholder">
+                        <p>Click "Start Recording" to begin transcription...</p>
+                        <p class="hint">Your speech will appear here in real-time</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voice Activity Indicator -->
+            <section class="voice-section">
+                <div class="voice-indicator" id="voiceIndicator">
+                    <div class="wave-container">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                    <span class="voice-status" id="voiceStatus">Idle</span>
+                </div>
+            </section>
+
+            <!-- AI Response Section -->
+            <section class="response-section" id="responseSection">
+                <div class="section-header">
+                    <h2>🤖 AI Response</h2>
+                    <button id="muteAudioBtn" class="btn btn-secondary btn-small" title="Toggle audio responses">
+                        🔊 Audio ON
+                    </button>
+                </div>
+                <div class="response-container" id="responseContainer">
+                    <div class="placeholder">
+                        <p>AI responses will appear here...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="main-controls">
+                <button id="startBtn" class="btn btn-primary btn-large">
+                    <span class="btn-icon">🎤</span>
+                    <span class="btn-text">Start Recording</span>
+                </button>
+                <button id="stopBtn" class="btn btn-danger btn-large" disabled>
+                    <span class="btn-icon">⏹️</span>
+                    <span class="btn-text">Stop Recording</span>
+                </button>
+            </div>
+            <div class="secondary-controls">
+                <button id="exportTxtBtn" class="btn btn-secondary" disabled>
+                    📄 Export TXT
+                </button>
+                <button id="exportJsonBtn" class="btn btn-secondary" disabled>
+                    📋 Export JSON
+                </button>
+            </div>
+        </section>
+
+        <!-- Error Modal -->
+        <div class="modal" id="errorModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>⚠️ Error</h3>
+                    <button class="modal-close" id="closeErrorModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="errorMessage">An error occurred</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="errorModalOk">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permission Modal -->
+        <div class="modal" id="permissionModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🎤 Microphone Access Required</h3>
+                </div>
+                <div class="modal-body">
+                    <p>This application needs access to your microphone for transcription.</p>
+                    <p>Please click "Allow" when prompted by your browser.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="permissionModalOk">I understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+    "name": "gemini-live-transcription",
+    "version": "1.0.0",
+    "description": "Real-time transcription application using Google Gemini Live API",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "gemini",
+        "transcription",
+        "live",
+        "audio",
+        "speech-to-text"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "ws": "^8.14.0",
+        "@google/generative-ai": "^0.21.0",
+        "dotenv": "^16.3.1"
+    }
+}
