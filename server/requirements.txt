@@ -1,0 +1,5 @@
+pipecat-ai[google,daily]
+python-dotenv
+fastapi
+uvicorn
+aiohttp

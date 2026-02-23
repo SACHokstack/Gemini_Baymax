@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+*.env.local
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Cache
+.ruff_cache/
+.cache/
+
+# Logs
+*.log
+
+# IDE
+.agents/
+.vscode/
+.idea/
